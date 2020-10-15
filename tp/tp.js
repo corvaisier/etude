@@ -14,7 +14,6 @@ const populations = [
     { id: 12, name: "Ian", password: "Axgkj00Kl" },
 ];
 
-
 let acc = 0
 let accu = 0
 for (const population of populations) {
@@ -31,7 +30,7 @@ for (const population of populations) {
     ///////////////////////////////////////////
     if (population.jobs != undefined) {
         array = population.jobs
-        //if (array.includes('dev fullstack') === true) {console.log(population.name) }
+        if (array.includes('dev fullstack') === true) {console.log(population.name) }
     }
 
 
@@ -43,49 +42,37 @@ for (const population of populations) {
     //////////////////////////////////////////
     //question 1.4
     /////////////////////////////////////////
-    let result = []
-    //if (population.password != undefined) { result = [count(population.password)] }
-    //console.log(result)
-
-
-    ////////////////////////////////////////////
-    //question 1.5
-    ///////////////////////////////////////////
+    if (population.password != undefined) { result = [count(population.password)] }
+    console.log(result)
 }
+console.log("personnes ayant la qualification doctor" + ":" +accu)
+console.log("personnes n'ayant jamais travaillés" + ": " + acc)
 
-
-//console.log("personne n'ayant jamais travaillé" + ": " + acc)
-//console.log(accu)
-
-
-
-
-
-    ////////////////////////////////////////////
-    //question 2
-    ///////////////////////////////////////////
+////////////////////////////////////////////
+//question 2
+///////////////////////////////////////////
 
 function count(x) {
     let counter = {}
     let string = x
-    let stringArray = string.split('');
+    let stringArray = string.split('')
     stringArray.forEach(function (character) {
         if (!counter.hasOwnProperty(character)) {
-            counter[character] = 0;
+            counter[character] = 0
         }
-        counter[character]++;
+        counter[character]++
     });
-    console.log(counter);
+    console.log(counter)
 }
-    ////////////////////////////////////////////
-    //question 3
-    ///////////////////////////////////////////
+////////////////////////////////////////////
+//question 3
+///////////////////////////////////////////
 function catchNumber(x) {
-    let a = x.match(/\d+/g).map(Number)
-   console.log(a)
+    let a = x.split(':').filter(Number)
+    console.log(a)
 }
 
-//catchNumber("8790:bonjour le monde:8987:7777:Hello World:9007")
+catchNumber("8790:bonjour le monde:8987:7777:Hello World:9007")
 
 
 
